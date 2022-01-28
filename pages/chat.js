@@ -97,6 +97,14 @@ export default function ChatPage() {
                 color: appConfig.theme.colors.neutrals[200],
               }}
             />
+            <Button
+              variant="tertiary"
+              colorVariant="neutral"
+              label="Send"
+              onClick={(event) => {
+                handleNovaMensagem(mensagem);
+              }}
+            />
           </Box>
         </Box>
       </Box>
@@ -129,7 +137,6 @@ function Header() {
 }
 
 function MessageList(props) {
-  console.log(props);
   return (
     <Box
       tag="ul"
