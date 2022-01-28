@@ -21,21 +21,7 @@ function Title(props) {
   );
 }
 
-// function HomePage() {
-//   // JSX
-//   return (
-//     <div>
-//       <GlobalStyle />
-//       <Title tag="h2">Boas vindas de volta!</Title>
-//       <h2>Discord - Alura Matrix</h2>
-//     </div>
-//   );
-// }
-
-// export default HomePage;
-
 export default function PaginaInicial() {
-  //   const username = "hrsJesus";
   const [username, setUsername] = React.useState("hrsJesus");
   const roteamento = useRouter();
 
@@ -72,7 +58,6 @@ export default function PaginaInicial() {
             backgroundColor: appConfig.theme.colors.neutrals[700],
           }}
         >
-          {/* Formulário */}
           <Box
             as="form"
             onSubmit={function (infosDoEvento) {
@@ -100,20 +85,10 @@ export default function PaginaInicial() {
             >
               {appConfig.name}
             </Text>
-            {/* <input
-              type="text"
-              value={username}
-              onChange={function (event) {
-                console.log("usuario digitou", event.target.value);
-                const valor = event.target.value;
-                // Change the variable value by React
-                setUsername(valor);
-              }}
-            /> */}
+
             <TextField
               value={username}
               onChange={function (event) {
-                console.log("usuario digitou", event.target.value);
                 const valor = event.target.value;
                 // Change the variable value by React
                 setUsername(valor);
