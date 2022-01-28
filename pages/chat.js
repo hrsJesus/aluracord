@@ -84,7 +84,7 @@ export default function ChatPage() {
                   handleNovaMensagem(mensagem);
                 }
               }}
-              placeholder="Insira sua mensagem aqui..."
+              placeholder="Type your message here..."
               type="textarea"
               styleSheet={{
                 width: "100%",
@@ -176,7 +176,7 @@ function MessageList(props) {
                   display: "inline-block",
                   marginRight: "8px",
                 }}
-                src={`https://github.com/vanessametonini.png`}
+                src={`https://github.com/hrsJesus.png`}
               />
               <Text tag="strong">{mensagem.de}</Text>
               <Text
