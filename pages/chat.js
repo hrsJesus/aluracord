@@ -2,6 +2,7 @@ import { Box, Text, TextField, Image, Button } from "@skynexui/components";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import React from "react";
 import appConfig from "../config.json";
+import LinearProgress from "@mui/material/CircularProgress";
 
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzQyMTE3NywiZXhwIjoxOTU4OTk3MTc3fQ.RtzPvKuw7gIwUOyhrJ2fgrYFkurgyFVSsLyO7xL5-RM";
@@ -47,8 +48,8 @@ export default function ChatPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: appConfig.theme.colors.primary[500],
-        backgroundImage: `url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)`,
+        backgroundColor: appConfig.theme.colors.primary[100],
+        backgroundImage: `url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/flute-adam-gault.jpg)`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundBlendMode: "multiply",
@@ -62,7 +63,7 @@ export default function ChatPage() {
           flex: 1,
           boxShadow: "0 2px 10px 0 rgb(0 0 0 / 20%)",
           borderRadius: "5px",
-          backgroundColor: appConfig.theme.colors.neutrals[700],
+          backgroundColor: appConfig.theme.colors.neutrals[300],
           height: "100%",
           maxWidth: "95%",
           maxHeight: "95vh",
@@ -83,13 +84,7 @@ export default function ChatPage() {
           }}
         >
           <MessageList mensagens={listaDeMensagens} />
-          {/* {listaDeMensagens.map((mensagemAtual) => {
-            return (
-              <li key={mensagemAtual.id}>
-                {mensagemAtual.de}: {mensagemAtual.texto}
-              </li>
-            );
-          })} */}
+
           <Box
             as="form"
             styleSheet={{
@@ -104,7 +99,7 @@ export default function ChatPage() {
                 setMensagem(valor);
               }}
               onKeyPress={(event) => {
-                if (event.key === "Enter") {
+                if (event.key === "Enter" && !event.shiftKey) {
                   event.preventDefault();
                   handleNovaMensagem(mensagem);
                 }
@@ -122,6 +117,7 @@ export default function ChatPage() {
                 color: appConfig.theme.colors.neutrals[200],
               }}
             />
+
             <Button
               variant="tertiary"
               colorVariant="neutral"
@@ -133,6 +129,14 @@ export default function ChatPage() {
           </Box>
         </Box>
       </Box>
+    </Box>
+  );
+}
+
+function LinearIndeterminate() {
+  return (
+    <Box sx={{ width: "100%" }}>
+      <LinearProgress />
     </Box>
   );
 }
