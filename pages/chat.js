@@ -30,7 +30,7 @@ export default function ChatPage() {
     supabaseClient
       .from("mensagens")
       .select("*")
-      .order("id", { ascendeing: false })
+      .order("id", { ascending: false })
       .then(({ data }) => {
         setListaDeMensagens(data);
       });
